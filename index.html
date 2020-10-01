@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <br />
+        <form class="search-form" id="search-form">
+          <input
+            type="search"
+            placeholder="Enter City"
+            id="city-input"
+            class="city-input"
+          />
+          <input class="button" type="submit" value="🔎 Search" />
+        </form>
+        <br />
+        <h1 id="city">Houston</h1>
+        <h2 id="date">Houston Sunday, 5pm Clear</h2>
+        <h3></h3>
+        <br />
+        <h4 class="temperature" id="temperature"></h4>
+
+        <span class="cel" id="cel">°C</span>
+        |
+        <span class="fah" id="fah">°F</span>
+        <span class="unit" id="unit"></span>
+        <br />
+        <br />
+        <div class="col-6">
+          <ul class="stat">
+            <li>Humidity:<span class="humidity" id="humidity"> 63%</span></li>
+            <li>Wind:<span class="wind" id="wind"> 4 mph</span></li>
+            <li>Precipitation:<span class="pressure" id="pressure">10%</span></li>
+          </ul>
+        </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="card border-primary mb-3" style="max-width: 6rem">
+            <div class="card-header">SUN</div>
+            <div class="card-body text-primary">
+              <h5 class="card-title">95°|77°</h5>
+              <h6 class="weather-emoji">☀️</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card border-primary mb-3" style="max-width: 6rem">
+            <div class="card-header">MON</div>
+            <div class="card-body text-primary">
+              <h5 class="card-title">94°|79°</h5>
+              <h6 class="weather-emoji">🌤</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card border-primary mb-3" style="max-width: 6rem">
+            <div class="card-header">TUE</div>
+            <div class="card-body text-primary">
+              <h5 class="card-title">90°|79°</h5>
+              <h6 class="weather-emoji">🌥</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card border-primary mb-3" style="max-width: 6rem">
+            <div class="card-header">WED</div>
+            <div class="card-body text-primary">
+              <h5 class="card-title">90°|79°</h5>
+              <h6 class="weather-emoji">🌥</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
