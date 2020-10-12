@@ -12,17 +12,34 @@ ul {
   display: block;
   margin: 0 auto;
   padding: 30px;
-  max-width: 500px;
+  max-width: 650px;
   color: #ffffff;
-  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  background-image: linear-gradient(
+    to top,
+    #3f51b1 0%,
+    #5a55ae 13%,
+    #7b5fac 25%,
+    #8f6aae 38%,
+    #a86aa4 50%,
+    #cc6b8e 62%,
+    #f18271 75%,
+    #f3a469 87%,
+    #f7c978 100%
+  );
 }
 
 .btn {
   color: white;
-  background-color: #a8c0ee;
-  border-radius: 5px;
+  background-color: #f18571;
+  border-radius: 10px;
   border-color: blue;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  font-size: 16px;
+  line-height: 5px;
+  padding: 16px 24px;
 }
+
 .weather-forecast h3 {
   color: white;
   font-size: 20px;
