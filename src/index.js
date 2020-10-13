@@ -1,3 +1,13 @@
+let now = new Date();
+let h2 = document.querySelector("h2");
+let h3 = document.querySelector("h3");
+
+let date = now.getDate();
+let hours = now.getHours();
+let minutes = now.getMinutes();
+let year = now.getFullYear();
+
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
 
@@ -10,8 +20,25 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday"
   ];
+
+  let months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
   let day = days[date.getDay()];
-  return `${day} ${formatHours(timestamp)}`;
+  let month = months[now.getMonth()];
+  
+  return `${date}`;
 }
 
 function formatHours(timestamp) {
@@ -29,23 +56,23 @@ function formatHours(timestamp) {
 }
 
 function displayTemperature(response) {
-  let temperatureElement = document.querySelector("#temperature");
-  let cityElement = document.querySelector("#city");
-  let descriptionElement = document.querySelector("#description");
-  let humidityElement = document.querySelector("#humidity");
-  let windElement = document.querySelector("#wind");
-  let dateElement = document.querySelector("#date");
-  let iconElement = document.querySelector("#icon");
+  let temperature = document.querySelector("#temperature");
+  let city = document.querySelector("#city");
+  let description = document.querySelector("#description");
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
+  let date = document.querySelector("#date");
+  let icon = document.querySelector("#icon");
 
   celsiusTemperature = response.data.main.temp;
 
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  cityElement.innerHTML = response.data.name;
-  descriptionElement.innerHTML = response.data.weather[0].description;
-  humidityElement.innerHTML = response.data.main.humidity;
-  windElement.innerHTML = Math.round(response.data.wind.speed);
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  iconElement.setAttribute(
+  temperature.innerHTML = Math.round(celsiusTemperature);
+  city.innerHTML = response.data.name;
+  description.innerHTML = response.data.weather[0].description;
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  date.innerHTML = formatDate(response.data.dt * 1000);
+  icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
@@ -61,9 +88,7 @@ function displayForecast(response) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="col-2">
-      <h3>
-        ${formatHours(forecast.dt * 1000)}
-      </h3>
+      
       <img
         src="http://openweathermap.org/img/wn/${
           forecast.weather[0].icon
@@ -82,10 +107,10 @@ function displayForecast(response) {
 
 function search(city) {
   let apiKey = "4abe89f21ecc3baed78a0a03770bc859";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayTemperature);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -101,7 +126,7 @@ function displayFahrenheitTemperature(event) {
 
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
 }
 
@@ -124,3 +149,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
+search("Houston");
