@@ -1,16 +1,24 @@
-ul {
-  list-style: none;
-  margin: 0 0 10px;
-  padding: 0;
-  list-style: none;
+.button {
+  color: white;
+  background-color: #f18571;
+  border-radius: 10px;
+  border-color: blue;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  font-size: 16px;
+  line-height: 5px;
+  padding: 16px 24px;
 }
 
+.temp-value {
+  font-size: 30px;
+}
 .weather-app {
   border: 1px solid;
   border-radius: 10px;
   border-color: royalblue;
   display: block;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 30px;
   max-width: 650px;
   color: #ffffff;
@@ -28,40 +36,15 @@ ul {
   );
 }
 
-.btn {
-  color: white;
-  background-color: #f18571;
-  border-radius: 10px;
-  border-color: blue;
-  cursor: pointer;
-  transition: all 200ms ease-in-out;
-  font-size: 16px;
-  line-height: 5px;
-  padding: 16px 24px;
+ul {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
 }
 
-.weather-forecast h3 {
-  color: white;
+li {
+  list-style: none;
   font-size: 20px;
-  font-weight: 400;
-
-  height: 15px;
-  line-height: 15px;
-  padding-top: 7px;
-}
-
-.weather-forecast img {
-  height: 60px;
-  width: 60px;
-  display: block;
-  margin: 0 auto;
-}
-.weather-forecast-temperature {
-  text-align: center;
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  height: auto;
-  line-height: 15px;
-  white-space: nowrap;
+  margin: 0;
+  padding: 0;
 }
